@@ -750,6 +750,21 @@ body.light footer a { color: #fff; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+  nav {
+    top: 16px;
+    padding: 6px 10px;
+    gap: 4px;
+  }
+  nav a {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+  .nav-theme {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
   section { padding: 80px 20px 40px; }
   .hero-inner { flex-direction: column; gap: 40px; text-align: center; }
   .photo-stack {
@@ -774,6 +789,22 @@ body.light footer a { color: #fff; }
 }
 
 @media (max-width: 600px) {
+  nav {
+    top: 12px;
+    padding: 5px 10px;
+    gap: 3px;
+    border-radius: 40px;
+  }
+  nav a {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+  .nav-theme {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+
   .hero-title { font-size: 34px; }
   .hero-sub { font-size: 14px; margin: 0 auto 24px; }
   .photo-stack {
