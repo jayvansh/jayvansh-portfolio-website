@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jayvansh baria – Video Editor</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor-dot">
+  <img src="cursor.png" alt="Custom Cursor" draggable="false" style="width: 32px; height: auto;">
+</div>
+<div id="cursor-trail"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="active" onclick="setActive(this)">Home</a>
+  <a href="#work" onclick="setActive(this)">Work</a>
+  <a href="#about" onclick="setActive(this)">About</a>
+  <a href="#contact" onclick="setActive(this)">Contact</a>
+  <button class="nav-theme" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <div class="hero-inner">
+    <div class="photo-stack reveal-left" id="photoStack">
+      <div class="card">
+        <img src="IMG_20250809_114263_613.jpeg" alt="Video editing preview" />
+      </div>
+      <div class="card">
+        <img src="hero-2.jpg" alt="Film editing illustration" />
+      </div>
+      <div class="card">
+        <img src="IMG_20251011_112110_704.webp" alt="Film reel preview" />
+      </div>
+      <div class="card">
+        <img src="IMG_20250809_141144_405.webp" alt="Profile preview" />
+      </div>
+    </div>
+
+    <div class="hero-text">
+      <p class="hero-eyebrow reveal delay-1">Hi, I'm Jayvansh baria</p>
+      <h1 class="hero-title reveal delay-2">Video&nbsp;Editor for<br>Top Creators</h1>
+      <p class="hero-sub reveal delay-3">I turn raw footage into viral stories that stop the scroll &amp; drive millions of views</p>
+      <a href="#work" class="btn-primary reveal delay-4">WATCH MY SHOWREEL →</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- REELS SECTION -->
+<section id="work" style="min-height:auto; padding-top: 20px;">
+  <div class="section-head reveal">
+    <h2>Scroll-Stopping Edits I Made</h2>
+    <p>Viral videos that dominate feeds</p>
+  </div>
+
+  <div class="reels-track-wrapper">
+    <div class="reels-track" id="reelsTrack">
+      <!-- cards duplicated for infinite scroll -->
+      <div class="reel-card">
+        <div class="reel-overlay" data-url="https://www.instagram.com/reel/DWDOPLXDOrx/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="><div class="reel-overlay-btn">▶ WATCH REEL</div></div>
+        <div class="reel-inner">
+          <video class="reel-video" src="https://res.cloudinary.com/dwcnefdbn/video/upload/q_auto/f_auto/v1781614603/clip_-_1_lnam0d.mp4" muted loop playsinline></video>
+          <div class="reel-badge">Sahas institute</div>
+        </div>
+      </div>
+      <div class="reel-card">
+        <div class="reel-overlay" data-url="https://www.instagram.com/reel/DVFcL86DGQT/"><div class="reel-overlay-btn">▶ WATCH REEL</div></div>
+        <div class="reel-inner">
+          <video class="reel-video" src="https://res.cloudinary.com/dwcnefdbn/video/upload/q_auto/f_auto/v1781614847/clip_-_2_yyu6tq.mp4" muted loop playsinline poster="reel-2.jpg"></video>
+          <div class="reel-badge">Sahas institute</div>
+        </div>
+      </div>
+      <div class="reel-card">
+        <div class="reel-overlay" data-url="https://www.instagram.com/reel/DX3ZxzouMEx/"><div class="reel-overlay-btn">▶ WATCH REEL</div></div>
+        <div class="reel-inner">
+          <video class="reel-video" src="https://res.cloudinary.com/dwcnefdbn/video/upload/q_auto/f_auto/v1781614654/clip_-_3_nz4hfy.mp4" muted loop playsinline poster="reel-3.jpg"></video>
+          <div class="reel-badge">Sahas institute</div>
+        </div>
+      </div>
+      <div class="reel-card">
+        <div class="reel-overlay" data-url="https://www.instagram.com/reel/DSrp59OiE5g/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="><div class="reel-overlay-btn">▶ WATCH REEL</div></div>
+        <div class="reel-inner">
+          <video class="reel-video" src="https://res.cloudinary.com/dwcnefdbn/video/upload/q_auto/f_auto/v1781614685/clip_-_4_tdsohp.mp4" muted loop playsinline poster="reel-4.jpg"></video>
+          <div class="reel-badge">codecrushersx</div>
+        </div>
+      </div>
+      <div class="reel-card">
+        <div class="reel-overlay" data-url="https://www.instagram.com/reel/DZNDhPQzGJD/"><div class="reel-overlay-btn">▶ WATCH REEL</div></div>
+        <div class="reel-inner">
+          <video class="reel-video" src="https://res.cloudinary.com/dwcnefdbn/video/upload/q_auto/f_auto/v1781614655/clip_-_5_kpqv2b.mp4" muted loop playsinline poster="reel-5.jpg"></video>
+          <div class="reel-badge">codecrushersx</div>
+        </div>
+      </div>
+      <div class="reel-card">
+        <div class="reel-overlay" data-url="https://www.instagram.com/reel/DR_8Jm9iHBo/"><div class="reel-overlay-btn">▶ WATCH REEL</div></div>
+        <div class="reel-inner">
+          <video class="reel-video" src="https://res.cloudinary.com/dwcnefdbn/video/upload/q_auto/f_auto/v1781614660/clip_-_6_fqifuv.mp4" muted loop playsinline poster="reel-6.jpg"></video>
+          <div class="reel-badge">codecrushersx</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-photo reveal-left">
+      <img src="IMG_20250809_141144_405.webp" alt="About me photo" />
+    </div>
+    <div class="about-text reveal-right">
+      <h2>About Me</h2>
+      <p>Hey, I'm Jayvansh Baria. I turn dead air into retention gold.
+          With 3+ years of experience editing short-form content, I specialize in the fast-paced, high-energy editing style that keeps viewers scrolling back to your video, not past it. From viral kinetic typography to seamless cinematic transitions, I edit for the algorithm and the audience. Let’s make your next Reel go viral.</p>
+
+      <div class="stats-row">
+        <div class="stat-item reveal delay-1">
+          <span class="num">100k+</span>
+          <span class="label">Total Views</span>
+        </div>
+        <div class="stat-item reveal delay-2">
+          <span class="num">10+</span>
+          <span class="label">Creators Worked With</span>
+        </div>
+        <div class="stat-item reveal delay-3">
+          <span class="num">3+</span>
+          <span class="label">Years Experience</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-head reveal">
+    <h2>Let's Work Together</h2>
+    <p>Have a project in mind? Let's make it viral</p>
+  </div>
+
+  <div class="contact-inner">
+    <div class="contact-left reveal-left delay-1">
+      <p class="label">EMAIL</p>
+      <p class="email">jayvanshbaria@gmail.com</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/jayvanshbariaa" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="www.linkedin.com/in/jayvansh-baria" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form reveal-right delay-2">
+      <input type="text" class="form-input" placeholder="Your Name" />
+      <input type="email" class="form-input" placeholder="Your Email" />
+      <textarea class="form-textarea" placeholder="Tell me about your project..."></textarea>
+      <button class="btn-primary" style="align-self:flex-start" onclick="handleSend()">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 jayvansh baria. Video Editor</span>
+  <div class="foot-links">
+    <a href="#home">Home</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<div id="videoModal" class="video-modal" aria-hidden="true">
+  <div class="video-modal__content">
+    <button class="video-modal__close" id="videoModalClose" aria-label="Close video">×</button>
+    <video id="modalVideo" controls playsinline></video>
+    <div class="video-modal__caption">Tap outside or press Esc to close</div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
