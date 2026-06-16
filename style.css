@@ -3,6 +3,11 @@
 /* ── CUSTOM CURSOR ── */
 * { cursor: none !important; }
 
+@media (hover: none), (pointer: coarse) {
+  * { cursor: auto !important; }
+  #cursor-dot, #cursor-trail, .trail-dot { display: none !important; }
+}
+
 #cursor-dot {
   position: fixed;
   top: 0; left: 0;

@@ -141,55 +141,61 @@ document.addEventListener('DOMContentLoaded', () => {
 // ── CUSTOM CURSOR ──
 const cursorDot = document.getElementById('cursor-dot');
 const trailContainer = document.getElementById('cursor-trail');
+const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0 || window.matchMedia('(pointer: coarse)').matches;
 let mouseX = 0, mouseY = 0;
 let curX = 0, curY = 0;
 const TRAIL_LENGTH = 5;
 const trail = [];
 
-for (let i = 0; i < TRAIL_LENGTH; i++) {
-  const d = document.createElement('div');
-  d.className = 'trail-dot';
-  d.style.opacity = (1 - i / TRAIL_LENGTH) * 0.4;
-  d.style.width = d.style.height = (6 - i * 0.5) + 'px';
-  trailContainer.appendChild(d);
-  trail.push({ el: d, x: 0, y: 0 });
-}
+if (isTouchDevice) {
+  if (cursorDot) cursorDot.style.display = 'none';
+  if (trailContainer) trailContainer.style.display = 'none';
+} else if (cursorDot && trailContainer) {
+  for (let i = 0; i < TRAIL_LENGTH; i++) {
+    const d = document.createElement('div');
+    d.className = 'trail-dot';
+    d.style.opacity = (1 - i / TRAIL_LENGTH) * 0.4;
+    d.style.width = d.style.height = (6 - i * 0.5) + 'px';
+    trailContainer.appendChild(d);
+    trail.push({ el: d, x: 0, y: 0 });
+  }
 
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
-
-const hoverTargets = 'a, button, .work-card, .reel-card, .social-btn, .nav-theme';
-document.addEventListener('mouseover', e => {
-  if (e.target.closest(hoverTargets)) cursorDot.classList.add('hovering');
-});
-document.addEventListener('mouseout', e => {
-  if (e.target.closest(hoverTargets)) cursorDot.classList.remove('hovering');
-});
-
-document.addEventListener('mousedown', () => cursorDot.classList.add('clicking'));
-document.addEventListener('mouseup', () => cursorDot.classList.remove('clicking'));
-
-function animateCursor() {
-  curX += (mouseX - curX) * 0.18;
-  curY += (mouseY - curY) * 0.18;
-  cursorDot.style.transform = `translate(${curX}px, ${curY}px)`;
-
-  trail.forEach((t, i) => {
-    if (i === 0) {
-      t.x += (curX - t.x) * 0.35;
-      t.y += (curY - t.y) * 0.35;
-    } else {
-      t.x += (trail[i-1].x - t.x) * 0.35;
-      t.y += (trail[i-1].y - t.y) * 0.35;
-    }
-    t.el.style.transform = `translate(${t.x - 3}px, ${t.y - 3}px)`;
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
   });
 
-  requestAnimationFrame(animateCursor);
+  const hoverTargets = 'a, button, .work-card, .reel-card, .social-btn, .nav-theme';
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest(hoverTargets)) cursorDot.classList.add('hovering');
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(hoverTargets)) cursorDot.classList.remove('hovering');
+  });
+
+  document.addEventListener('mousedown', () => cursorDot.classList.add('clicking'));
+  document.addEventListener('mouseup', () => cursorDot.classList.remove('clicking'));
+
+  function animateCursor() {
+    curX += (mouseX - curX) * 0.18;
+    curY += (mouseY - curY) * 0.18;
+    cursorDot.style.transform = `translate(${curX}px, ${curY}px)`;
+
+    trail.forEach((t, i) => {
+      if (i === 0) {
+        t.x += (curX - t.x) * 0.35;
+        t.y += (curY - t.y) * 0.35;
+      } else {
+        t.x += (trail[i-1].x - t.x) * 0.35;
+        t.y += (trail[i-1].y - t.y) * 0.35;
+      }
+      t.el.style.transform = `translate(${t.x - 3}px, ${t.y - 3}px)`;
+    });
+
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
 }
-animateCursor();
 
 // ── SCROLL REVEAL ──
 const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
