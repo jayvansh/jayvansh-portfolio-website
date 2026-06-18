@@ -247,7 +247,13 @@ function handleSend() {
   const email = document.querySelector('input[placeholder="Your Email"]').value.trim();
   const msg = document.querySelector('.form-textarea').value.trim();
   if (!name || !email || !msg) { alert('Please fill all fields.'); return; }
-  alert(`Thanks ${name}! Message sent. I'll get back to you at ${email} soon.`);
+
+  const to = 'jayvanshbaria@gmail.com';
+  const subject = `New project inquiry from ${name}`;
+  const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`;
+  const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailtoLink;
 }
 
 const reelModal = document.getElementById('videoModal');
