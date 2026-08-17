@@ -1,4 +1,3 @@
-// ── PHOTO STACK ──
 const photoStack = document.getElementById('photoStack');
 if (photoStack) {
   const POSITIONS = [
@@ -55,7 +54,6 @@ if (photoStack) {
   });
 }
 
-// ── DYNAMIC SPRINKLE SYSTEM ──
 const COLORS = ['#00e5ff', '#00b0ff', '#2979ff', '#00e676', '#1de9b6', '#0091ea', '#00bfa5'];
 
 function createSingleSprinkle(x, y, isSpreadMode = false) {
@@ -138,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ── CUSTOM CURSOR ──
 const cursorDot = document.getElementById('cursor-dot');
 const trailContainer = document.getElementById('cursor-trail');
 const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0 || window.matchMedia('(pointer: coarse)').matches;
@@ -197,7 +194,6 @@ if (isTouchDevice) {
   animateCursor();
 }
 
-// ── SCROLL REVEAL ──
 const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -215,6 +211,45 @@ window.addEventListener('load', () => {
     setTimeout(() => el.classList.add('visible'), 200);
   });
 });
+
+const catMascot = document.getElementById('catMascot');
+const catMascotWrap = document.getElementById('catMascotWrap');
+
+if (catMascot && catMascotWrap) {
+  const defaultCat = 'cat.png';
+  const hoverCat = 'cat 1.png';
+  const clickCat = 'cat 3.png';
+
+  const resetCat = () => {
+    catMascot.src = defaultCat;
+    catMascotWrap.classList.remove('is-clicked');
+    catMascotWrap.classList.add('is-sleeping');
+    catMascot.style.animation = 'catFloat 2.6s ease-in-out infinite';
+  };
+
+  catMascotWrap.addEventListener('mouseenter', () => {
+    catMascot.src = hoverCat;
+    catMascotWrap.classList.remove('is-sleeping');
+    catMascot.style.animation = 'none';
+  });
+
+  catMascotWrap.addEventListener('mouseleave', () => {
+    resetCat();
+  });
+
+  catMascotWrap.addEventListener('click', () => {
+    catMascot.src = clickCat;
+    catMascotWrap.classList.remove('is-sleeping');
+    catMascotWrap.classList.add('is-clicked');
+    catMascot.style.animation = 'catBounce 0.4s ease';
+
+    setTimeout(() => {
+      resetCat();
+    }, 500);
+  });
+
+  resetCat();
+}
 
 function setActive(el) {
   document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
